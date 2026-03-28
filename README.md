@@ -1,5 +1,9 @@
 # Crime Intelligence Overview Dashboard
 
+**Live site (use this link):** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
+
+The old URL `…/DashboardAssgn3/` was from the **previous repository name**. This project is deployed from **[intelligence-dashboard](https://github.com/poorvithdevang861/intelligence-dashboard)** only.
+
 A modern, desktop-optimized dashboard for visualizing Indian crime data with interactive filters and comprehensive analytics.
 
 ## Features
