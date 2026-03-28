@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/IntelligenceDashboard/',
+  base: '/DashboardAssgn3/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
