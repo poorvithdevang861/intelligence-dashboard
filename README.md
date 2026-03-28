@@ -76,3 +76,5 @@ Base path `/intelligence-dashboard/` matches the GitHub repo name (see `vite.con
 - **Live site:** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
 - **Deploy:** `npm run deploy` ([gh-pages](https://www.npmjs.com/package/gh-pages))
 
+Rename or create the GitHub repo as **`intelligence-dashboard`** so the path matches (Settings → General → Repository name). Pages URL updates automatically after rename.
+
