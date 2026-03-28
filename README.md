@@ -39,7 +39,7 @@ npm run dev
 ## Project Structure
 
 ```
-DashboardAssgn3/
+intelligence-dashboard/
 ├── data/
 │   └── crime-data.json          # Converted JSON dataset
 ├── src/
@@ -70,9 +70,9 @@ The dashboard uses a JSON dataset converted from the original CSV file. The JSON
 
 ## GitHub Pages
 
-Base path `/DashboardAssgn3/` matches the repo name (see `vite.config.js` and `src/main.jsx`).
+Base path `/intelligence-dashboard/` matches the GitHub repo name (see `vite.config.js` and `src/main.jsx`).
 
-- **Repository:** [github.com/poorvithdevang861/DashboardAssgn3](https://github.com/poorvithdevang861/DashboardAssgn3)
-- **Live site:** [poorvithdevang861.github.io/DashboardAssgn3/](https://poorvithdevang861.github.io/DashboardAssgn3/)
+- **Repository:** [github.com/poorvithdevang861/intelligence-dashboard](https://github.com/poorvithdevang861/intelligence-dashboard)
+- **Live site:** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
 - **Deploy:** `npm run deploy` ([gh-pages](https://www.npmjs.com/package/gh-pages))
 
