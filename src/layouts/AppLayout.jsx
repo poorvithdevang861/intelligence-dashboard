@@ -1,7 +1,6 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import FilterSidebar from '../components/FilterSidebar'
-import crimeData from '../../data/crime-data.json'
 
 const initialFilters = {
   city: 'All',
@@ -14,8 +13,33 @@ const initialFilters = {
 
 export default function AppLayout() {
   const [filters, setFilters] = useState(initialFilters)
+  const [crimeData, setCrimeData] = useState(null)
+  const [loadError, setLoadError] = useState(null)
+
+  /** Load JSON from `public/data/` so it is not bundled (~18MB) — avoids blank page / hang on GitHub Pages. */
+  useEffect(() => {
+    let cancelled = false
+    const url = `${import.meta.env.BASE_URL}data/crime-data.json`
+    fetch(url)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Could not load dataset (${r.status})`)
+        return r.json()
+      })
+      .then((data) => {
+        if (!cancelled) setCrimeData(Array.isArray(data) ? data : [])
+      })
+      .catch((e) => {
+        if (!cancelled) setLoadError(e?.message ?? 'Failed to load crime data')
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const filterOptions = useMemo(() => {
+    if (!crimeData?.length) {
+      return { cities: [], crimeTypes: [], weapons: [], genders: [], years: [] }
+    }
     const cities = [...new Set(crimeData.map((d) => d.City))].sort()
     const crimeTypes = [...new Set(crimeData.map((d) => d['Crime Description']))].sort()
     const weapons = [...new Set(crimeData.map((d) => d['Weapon Used']))].sort()
@@ -33,9 +57,10 @@ export default function AppLayout() {
       .sort((a, b) => a - b)
 
     return { cities, crimeTypes, weapons, genders, years }
-  }, [])
+  }, [crimeData])
 
   const filteredData = useMemo(() => {
+    if (!crimeData?.length) return []
     return crimeData.filter((record) => {
       if (filters.city !== 'All' && record.City !== filters.city) return false
       if (filters.crimeType !== 'All' && record['Crime Description'] !== filters.crimeType) return false
@@ -58,16 +83,42 @@ export default function AppLayout() {
 
       return true
     })
-  }, [filters])
+  }, [filters, crimeData])
 
   const layoutContext = {
     filters,
     setFilters,
     filterOptions,
     filteredData,
-    crimeData,
+    crimeData: crimeData ?? [],
     initialFilters,
     onReset: () => setFilters(initialFilters),
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-50 p-6">
+        <div className="max-w-md rounded-2xl border border-red-200 bg-white p-6 text-center shadow-lg">
+          <p className="font-headline text-lg font-extrabold text-slate-900">Could not load data</p>
+          <p className="mt-2 font-body text-sm text-slate-600">{loadError}</p>
+          <p className="mt-3 font-body text-xs text-slate-500">
+            Ensure <code className="rounded bg-slate-100 px-1">public/data/crime-data.json</code> is deployed.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (crimeData === null) {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 bg-slate-50">
+        <div
+          className="h-10 w-10 animate-spin rounded-full border-4 border-[#2563eb] border-t-transparent"
+          aria-hidden
+        />
+        <p className="font-body text-sm font-semibold text-slate-700">Loading crime dataset…</p>
+      </div>
+    )
   }
 
   return (

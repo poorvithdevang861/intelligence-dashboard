@@ -44,8 +44,9 @@ npm run dev
 
 ```
 intelligence-dashboard/
-├── data/
-│   └── crime-data.json          # Converted JSON dataset
+├── public/
+│   └── data/
+│       └── crime-data.json      # Loaded at runtime (not bundled — keeps JS small for GitHub Pages)
 ├── src/
 │   ├── components/
 │   │   ├── Charts/              # Chart components
