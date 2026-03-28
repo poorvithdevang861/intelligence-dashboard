@@ -76,3 +76,4 @@ Base path `/intelligence-dashboard/` matches the GitHub repo name (see `vite.con
 - **Live site:** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
 - **Deploy:** `npm run deploy` ([gh-pages](https://www.npmjs.com/package/gh-pages))
 
+**If the site shows 404:** In the repo **Settings → Pages**, set **Source** to branch **`gh-pages`** and folder **`/ (root)`**, then wait a minute. Open the exact URL with a trailing slash: `https://poorvithdevang861.github.io/intelligence-dashboard/` (routing uses the hash: `/#/` and `/#/hotspots` so GitHub Pages does not need server rewrites).
