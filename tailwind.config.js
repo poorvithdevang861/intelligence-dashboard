@@ -1,0 +1,75 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        /* Page & surfaces — cool grey + white (reference: slate-50 / white cards) */
+        background: '#f8fafc',
+        surface: '#ffffff',
+        'on-background': '#0f172a',
+        'on-surface': '#0f172a',
+        'on-surface-variant': '#475569',
+        muted: '#64748b',
+        /* Primary — vivid professional blue */
+        primary: '#2563eb',
+        'on-primary': '#ffffff',
+        'primary-container': '#dbeafe',
+        'on-primary-container': '#1e3a8a',
+        'primary-fixed-dim': '#1d4ed8',
+        secondary: '#64748b',
+        'secondary-container': '#f1f5f9',
+        'on-secondary': '#334155',
+        /* Accent: teal/sky for secondary data series; orange only when needed */
+        tertiary: '#0ea5e9',
+        'tertiary-container': '#e0f2fe',
+        'on-tertiary': '#0c4a6e',
+        /* Semantic */
+        success: '#059669',
+        'success-muted': '#d1fae5',
+        error: '#dc2626',
+        'on-error': '#ffffff',
+        'error-container': '#fee2e2',
+        'surface-container': '#f1f5f9',
+        'surface-container-low': '#ffffff',
+        'surface-container-high': '#f1f5f9',
+        'surface-container-highest': '#e2e8f0',
+        'surface-container-lowest': '#ffffff',
+        'surface-variant': '#e2e8f0',
+        'surface-dim': '#f1f5f9',
+        'surface-bright': '#ffffff',
+        outline: '#e2e8f0',
+        'outline-variant': '#f1f5f9',
+        'inverse-surface': '#0f172a',
+        'inverse-on-surface': '#f8fafc',
+        'inverse-primary': '#93c5fd',
+        'surface-tint': '#2563eb',
+        'on-primary-fixed': '#0f172a',
+        'on-primary-fixed-variant': '#1e40af',
+        'primary-fixed': '#eff6ff',
+        'secondary-fixed': '#f1f5f9',
+        'tertiary-fixed': '#e0f2fe',
+      },
+      fontFamily: {
+        headline: ['Manrope', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        label: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        overline: ['0.625rem', { lineHeight: '1rem', letterSpacing: '0.12em', fontWeight: '600' }],
+      },
+      borderRadius: {
+        DEFAULT: '0.25rem',
+        lg: '0.5rem',
+        xl: '0.75rem',
+        full: '9999px',
+      },
+      boxShadow: {
+        card: '0 1px 3px 0 rgb(15 23 42 / 0.06), 0 4px 12px -2px rgb(15 23 42 / 0.08)',
+        'card-hover': '0 4px 6px -1px rgb(15 23 42 / 0.08), 0 12px 24px -4px rgb(37 99 235 / 0.12)',
+      },
+    },
+  },
+  plugins: [],
+}
