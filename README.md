@@ -1,6 +1,6 @@
 # Crime Intelligence Overview Dashboard
 
-**Live site (use this link):** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
+**Live site:** [poorvithdevang861.github.io/Intelligence-dashboard/](https://poorvithdevang861.github.io/Intelligence-dashboard/) (GitHub may use capital **I** in the path; the app uses **relative** assets + **hash** routing so it loads either way. Routes: `/#/` and `/#/hotspots`.)
 
 The old URL `…/DashboardAssgn3/` was from the **previous repository name**. This project is deployed from **[intelligence-dashboard](https://github.com/poorvithdevang861/intelligence-dashboard)** only.
 
@@ -75,10 +75,10 @@ The dashboard uses a JSON dataset converted from the original CSV file. The JSON
 
 ## GitHub Pages
 
-Base path `/intelligence-dashboard/` matches the GitHub repo name (see `vite.config.js` and `src/main.jsx`).
+Production build uses **relative** `base: './'` (see `vite.config.js`) so JS/CSS work whether the repo URL uses `Intelligence-dashboard` or `intelligence-dashboard`.
 
 - **Repository:** [github.com/poorvithdevang861/intelligence-dashboard](https://github.com/poorvithdevang861/intelligence-dashboard)
-- **Live site:** [poorvithdevang861.github.io/intelligence-dashboard/](https://poorvithdevang861.github.io/intelligence-dashboard/)
+- **Live site:** [poorvithdevang861.github.io/Intelligence-dashboard/](https://poorvithdevang861.github.io/Intelligence-dashboard/)
 - **Deploy:** `npm run deploy` ([gh-pages](https://www.npmjs.com/package/gh-pages))
 
 **If the site shows 404 or blank:** **Settings → Pages** → source **`gh-pages`** / **`/ (root)`**. Use the URL with a trailing slash. Local dev uses `base: /` so open `http://localhost:5173/`; production build uses `/intelligence-dashboard/` for GitHub Pages. After deploy, hard-refresh the live site.

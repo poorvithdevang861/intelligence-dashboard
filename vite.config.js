@@ -4,8 +4,11 @@ import path from 'path'
 
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  /** Dev: `/` so http://localhost:5173/ works. Prod: GitHub Pages project path. */
-  base: mode === 'production' ? '/intelligence-dashboard/' : '/',
+  /**
+   * Dev: `/` for localhost. Prod: `./` so JS/CSS/JSON resolve relative to the page URL.
+   * GitHub repo URLs can be `…/Intelligence-dashboard/` (capital I) while absolute `/intelligence-dashboard/` breaks.
+   */
+  base: mode === 'production' ? './' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

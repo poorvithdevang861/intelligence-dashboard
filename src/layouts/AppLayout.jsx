@@ -16,7 +16,7 @@ export default function AppLayout() {
   const [crimeData, setCrimeData] = useState(null)
   const [loadError, setLoadError] = useState(null)
 
-  /** Load JSON from `public/data/` so it is not bundled (~18MB) — avoids blank page / hang on GitHub Pages. */
+  /** Load JSON from `public/data/` (not bundled). URL is relative so it works with `…/Intelligence-dashboard/` or lowercase. */
   useEffect(() => {
     let cancelled = false
     const url = `${import.meta.env.BASE_URL}data/crime-data.json`
